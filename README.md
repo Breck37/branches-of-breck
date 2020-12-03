@@ -6,4 +6,6 @@ _Currently WIP. Future portfolio site for [Brent Eckert - @B-eck37](https://gith
 
 
 > Resources
-[NextJs README](https://github.com/B-eck37/branches-of-breck/tree/master/resources/NextREADME.md)
+> [NextJs README](https://github.com/B-eck37/branches-of-breck/tree/master/resources/NextREADME.md)
+
+**Powered by [Vercel](https://vercel.com/)**
