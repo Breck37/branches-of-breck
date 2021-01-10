@@ -22,7 +22,12 @@ export default function Home() {
             Current Projects
           </h3>
           <div className={styles.links}>
-            <a rel="stylesheet" href="https://breckulator.com">Breckulator</a>
+            <a rel="stylesheet" href="https://breckulator.com">
+              <div className={styles.project}>
+                Breckulator
+              <img src="/breckulator.png" alt="breckulator project" />
+              </div>
+            </a>
           </div>
         </section>
       </main>
@@ -38,6 +43,6 @@ export default function Home() {
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
-    </div>
+    </div >
   )
 }
