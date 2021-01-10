@@ -17,7 +17,16 @@ export default function Home() {
         <p className={styles.description}>
           Coming Soon!
         </p>
+        <section>
+          <h3 className={styles.current}>
+            Current Projects
+          </h3>
+          <div className={styles.links}>
+            <a rel="stylesheet" href="https://breckulator.com">Breckulator</a>
+          </div>
+        </section>
       </main>
+
 
       <footer className={styles.footer}>
         <a
