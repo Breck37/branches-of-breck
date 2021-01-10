@@ -17,11 +17,11 @@ export default function Home() {
           {/* <svg>
             <line x1='0' y1='0' x2='250' y2='250' stroke='blue' strokeWidth='4' />
           </svg> */}
+          <p className={styles.description}>
+            Website Coming Soon!
+        </p>
         </div>
 
-        <p className={styles.description}>
-          Website Coming Soon!
-        </p>
         <section>
           <a href="/projects">
             <h3 className={styles.current}>
