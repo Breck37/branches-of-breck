@@ -10,25 +10,24 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to Branches of Breck
+        <div className={styles.titleWrap}>
+          <h1 className={styles.title}>
+            Welcome to Br<span className="text">a</span>nches of Breck
         </h1>
+          {/* <svg>
+            <line x1='0' y1='0' x2='250' y2='250' stroke='blue' strokeWidth='4' />
+          </svg> */}
+        </div>
 
         <p className={styles.description}>
-          Coming Soon!
+          Website Coming Soon!
         </p>
         <section>
-          <h3 className={styles.current}>
-            Current Projects
-          </h3>
-          <div className={styles.links}>
-            <a rel="stylesheet" href="https://breckulator.com">
-              <div className={styles.project}>
-                Breckulator
-              <img src="/breckulator.png" alt="breckulator project" />
-              </div>
-            </a>
-          </div>
+          <a href="/projects">
+            <h3 className={styles.current}>
+              View Current Projects
+            </h3>
+          </a>
         </section>
       </main>
 

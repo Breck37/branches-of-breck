@@ -122,11 +122,45 @@
   }
 }
 
+.title {
+  /* display: inline-block; */
+  height: 60px;
+}
+
+.title > span.text {
+  animation-name: text;
+  animation-duration: 2s;
+}
+
+@keyframes text {
+  from {
+    text-transform: lowercase;
+  }
+
+  to {
+    text-transform: capitalize;
+  }
+}
+
+.titleWrap {
+  display: flex;
+  flex-direction: column;
+}
+
 .current {
   margin: 0;
   line-height: 1.15;
-  font-size: 2rem;
+  font-size: 1rem;
   margin-top: 32px;
+  background-color: #4e24e6;
+  color: #fff;
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.current:hover {
+  transform: scale(1.1);
 }
 
 .links {
