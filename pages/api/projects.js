@@ -26,7 +26,7 @@ export const projectsData = [
     {
         key: "css-for-js",
         name: "CSS For JS Developers Demo",
-        tagline: "Simple demo of CSS from a JS developers perspective",
+        tagline: "In Progress: Simple demo of CSS from a JS developers perspective",
         technologies: ["React", "Next", "Vercel"],
         description: "",
         image: "/css-for-js-dev.png",
