@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
-    "@storybook/addon-actions": "^6.4.3",
+    "@storybook/addon-actions": "^6.4.8",
     "@storybook/addon-essentials": "^6.4.3",
     "@storybook/addon-links": "^6.3.12",
     "babel-loader": "^8.2.3"
