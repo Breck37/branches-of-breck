@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "../styles/Home.module.css";
 import styled from "styled-components";
 import { projectsData } from "./api/projects";
@@ -13,9 +12,7 @@ const Projects = () => {
               {project.name}
               <img src={project.image} alt={project.alt} />
             </div>
-            <div>
-                {project.tagline}
-            </div>
+            <div>{project.tagline}</div>
           </a>
         </ProjectCard>
       ))}
@@ -26,8 +23,8 @@ const Projects = () => {
 export default Projects;
 
 const ProjectWrap = styled.div`
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 `;
 
 const ProjectCard = styled.div`
@@ -40,15 +37,15 @@ const ProjectCard = styled.div`
     align-items: center;
 
     > img {
-        height: 200px;
-        width: ${({ imageWidth }) => imageWidth ?? 150}px;
-        margin-top: 16px;
+      height: 200px;
+      width: ${({ imageWidth }) => imageWidth ?? 150}px;
+      margin-top: 16px;
     }
   }
 
   > a div:last-child {
-      margin: auto;
-      margin-top: 16px;
-      max-width: 40%;
+    margin: auto;
+    margin-top: 16px;
+    max-width: 40%;
   }
 `;
