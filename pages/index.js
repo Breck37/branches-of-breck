@@ -1,10 +1,25 @@
 import Head from 'next/head'
+import { motion } from 'framer-motion'
 import { projectsData } from './api/projects'
 import styles from '../styles/Home.module.css'
+import Nav from '../components/nav'
+import HeroSection from '../components/heroSection'
+import TreeTrunk from '../components/treeTrunk'
+import OrganicBranch from '../components/organicBranch'
+import ProjectCard from '../components/projectCard'
+import ParticleField from '../components/particleField'
+import Footer from '../components/footer'
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.15 },
+  },
+}
 
 export default function Home() {
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} min-h-screen bg-gradient-to-b from-cosmic-deep via-cosmic-mid to-cosmic-light text-parchment font-body overflow-x-hidden relative`}>
       <Head>
         <title>Branches of Breck</title>
         <link rel="icon" href="/favicon.ico" />
@@ -14,84 +29,40 @@ export default function Home() {
         />
       </Head>
 
-      <nav className={styles.nav}>
-        <a href="/">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <Nav />
+      <HeroSection />
 
-      <header className={styles.hero}>
-        <h1 className={styles.heroTitle}>Branches of Breck</h1>
-        <p className={styles.heroSubtitle}>Explore my personal projects and creations.</p>
-      </header>
+      <main id="projects" className="relative z-[1] max-w-[900px] mx-auto px-6 pt-10 pb-20">
+        <TreeTrunk />
+        <ParticleField />
 
-      <main id="projects" className={styles.treeSection}>
-        {/* Central tree trunk */}
-        <div className={styles.treeTrunk} />
-
-        {/* Glowing particles */}
-        <div className={styles.particles}>
-          {Array.from({ length: 12 }).map((_, i) => (
-            <div
-              key={i}
-              className={styles.particle}
-              style={{
-                '--delay': `${i * 0.8}s`,
-                '--x': `${20 + Math.random() * 60}%`,
-                '--y': `${10 + Math.random() * 80}%`,
-              }}
-            />
-          ))}
-        </div>
-
-        <div className={styles.projectRows}>
+        <motion.div
+          className="relative z-[1] flex flex-col gap-12"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {projectsData.map((project, index) => {
             const isLeft = index % 2 === 0
             return (
               <div
                 key={project.key}
-                className={`${styles.projectRow} ${isLeft ? styles.rowLeft : styles.rowRight}`}
+                className={`relative flex items-center w-full md:w-1/2 ${
+                  isLeft
+                    ? 'md:self-start md:justify-end md:pr-10'
+                    : 'md:self-end md:justify-start md:pl-10'
+                } justify-center`}
               >
-                {/* Branch line connecting to trunk */}
-                <div className={styles.branch} />
-
-                <a
-                  href={project.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.projectCard}
-                >
-                  <div className={styles.cardImage}>
-                    {project.image ? (
-                      <img src={project.image} alt={project.alt} />
-                    ) : (
-                      <div
-                        className={styles.cardPlaceholder}
-                        style={{ backgroundColor: project.placeholderColor || '#555' }}
-                      >
-                        <span>{project.name.charAt(0)}</span>
-                      </div>
-                    )}
-                  </div>
-                  <div className={styles.cardInfo}>
-                    <h3>{project.name}</h3>
-                    <p>{project.tagline}</p>
-                  </div>
-                  <div className={styles.cardArrow}>&#8250;</div>
-                </a>
+                <OrganicBranch isLeft={isLeft} index={index} />
+                <ProjectCard project={project} isLeft={isLeft} />
               </div>
             )
           })}
-        </div>
+        </motion.div>
       </main>
 
-      <footer id="contact" className={styles.siteFooter}>
-        <div className={styles.footerLinks}>
-          <a href="https://github.com/Breck37" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <span className={styles.footerDivider}>|</span>
-          <a href="https://linkedin.com/in/brenteckert" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
