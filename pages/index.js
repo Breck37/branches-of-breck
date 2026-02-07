@@ -1,47 +1,68 @@
 import Head from 'next/head'
+import { motion } from 'framer-motion'
+import { projectsData } from './api/projects'
 import styles from '../styles/Home.module.css'
+import Nav from '../components/nav'
+import HeroSection from '../components/heroSection'
+import TreeTrunk from '../components/treeTrunk'
+import OrganicBranch from '../components/organicBranch'
+import ProjectCard from '../components/projectCard'
+import ParticleField from '../components/particleField'
+import Footer from '../components/footer'
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.15 },
+  },
+}
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div className={`${styles.page} min-h-screen bg-gradient-to-b from-cosmic-deep via-cosmic-mid to-cosmic-light text-parchment font-body overflow-x-hidden relative`}>
       <Head>
         <title>Branches of Breck</title>
         <link rel="icon" href="/favicon.ico" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap"
+          rel="stylesheet"
+        />
       </Head>
 
-      <main className={styles.main}>
-        <div className={styles.titleWrap}>
-          <h1 className={styles.title}>
-            Welcome to Br<span className="text">a</span>nches of Breck
-        </h1>
-          {/* <svg>
-            <line x1='0' y1='0' x2='250' y2='250' stroke='blue' strokeWidth='4' />
-          </svg> */}
-          <p className={styles.description}>
-            Website Coming Soon!
-        </p>
-        </div>
+      <Nav />
+      <HeroSection />
 
-        <section>
-          <a href="/projects">
-            <h3 className={styles.current}>
-              View Current Projects
-            </h3>
-          </a>
-        </section>
+      <main id="projects" className="relative z-[1] max-w-[900px] mx-auto px-6 pt-10 pb-20">
+        <TreeTrunk />
+        <ParticleField />
+
+        <motion.div
+          className="relative z-[1] flex flex-col gap-12"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {projectsData.map((project, index) => {
+            const isLeft = index % 2 === 0
+            return (
+              <div
+                key={project.key}
+                className={`relative flex items-center w-full md:w-1/2 ${
+                  isLeft
+                    ? 'md:self-start md:justify-end md:pr-10'
+                    : 'md:self-end md:justify-start md:pl-10'
+                } justify-center`}
+              >
+                <OrganicBranch isLeft={isLeft} index={index} />
+                <ProjectCard project={project} isLeft={isLeft} />
+              </div>
+            )
+          })}
+        </motion.div>
       </main>
 
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div >
+      <Footer />
+    </div>
   )
 }
