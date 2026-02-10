@@ -3894,10 +3894,10 @@ store2@^2.14.2:
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.14.4.tgz#81b313abaddade4dcd7570c5cc0e3264a8f7a242"
   integrity sha512-srTItn1GOvyvOycgxjAnPA63FZNwy0PTyUBFMHRM+hVFltAeoh0LmNBz9SZqUS9mMqGk8rfyWyXn3GH5ReJ8Zw==
 
-storybook@^10.2.7:
-  version "10.2.7"
-  resolved "https://registry.yarnpkg.com/storybook/-/storybook-10.2.7.tgz#7a863b2a18056edf41d1922e223780cd9e141668"
-  integrity sha512-LFKSuZyF6EW2/Kkl5d7CvqgwhXXfuWv+aLBuoc616boLKJ3mxXuea+GxIgfk02NEyTKctJ0QsnSh5pAomf6Qkg==
+storybook@^10.2.8:
+  version "10.2.8"
+  resolved "https://registry.yarnpkg.com/storybook/-/storybook-10.2.8.tgz#fa4d915a0d209028d52edfbc485aa62fd8ebdb69"
+  integrity sha512-885uSIn8NQw2ZG7vy84K45lHCOSyz1DVsDV8pHiHQj3J0riCuWLNeO50lK9z98zE8kjhgTtxAAkMTy5nkmNRKQ==
   dependencies:
     "@storybook/global" "^5.0.0"
     "@storybook/icons" "^2.0.1"
