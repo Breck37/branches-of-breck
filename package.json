@@ -23,7 +23,7 @@
     "@storybook/addon-actions": "^9.0.8",
     "@storybook/addon-essentials": "^8.1.11",
     "@storybook/addon-links": "^6.4.18",
-    "autoprefixer": "^10.4.24",
+    "autoprefixer": "^10.5.0",
     "babel-loader": "^8.2.3",
     "postcss": "^8.5.6",
     "tailwindcss": "^3"
